@@ -15,7 +15,7 @@ class CalculatorSpec extends ObjectBehavior
     /** @test */
     function it_returns_the_sum_of_the_operations()
     {
-    	$this->getSum()->shouldBe(0);
+        $this->getSum()->shouldBe(0);
     }
 
     /** @test */
@@ -24,7 +24,7 @@ class CalculatorSpec extends ObjectBehavior
         $this->take(5);
 
         $this->getSum()->shouldBe(5);
-    }    
+    }
 
     /** @test */
     function it_calculates_the_multiplication()
@@ -56,6 +56,22 @@ class CalculatorSpec extends ObjectBehavior
         $this->take(39)->substract(17);
 
         $this->getSum()->shouldBe(22);
-    }    
+    }
+
+    /** @test */
+    function it_calculates_the_sum_of_a_given_string_of_operations()
+    {
+        $this->reset()->calculate('1+1+1')->getSum()->shouldBe(3);
+
+        $this->reset()->calculate('4-3-1+7')->getSum()->shouldBe(7);
+        
+        $this->reset()->calculate('1 + 1 * 3 + 3')->getSum()->shouldBe(7);
+
+        $this->reset()->calculate('6 * 6 * 3 - 4')->getSum()->shouldBe(104);
+
+       $this->reset()->calculate('4 + 2 +1 *4 - 54')->getSum()->shouldBe(-44);
+
+       $this->reset()->calculate('4 - 8 * 3 + 12 * 6')->getSum()->shouldBe(52);
+    }
 
 }
