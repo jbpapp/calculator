@@ -1,0 +1,19 @@
+{
+  "name": "smartbit/calculator",
+  "description": "Simple calculator",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Janos Papp",
+      "email": "janos.papp2@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "phpspec/phpspec": "2.1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Smartbit\\": "src"
+    }
+  }
+}
